@@ -88,6 +88,7 @@ nav.top ul a:hover{color:var(--ink)}
 /* sections */
 section.block{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--rule)}
 .block-head{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-bottom:40px}
+#education .block-head{margin-bottom:0;align-items:baseline}
 .block-head h2{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.05;letter-spacing:-.025em;margin:0}
 .block-head p{margin:0;color:var(--ink-2);max-width:38em;align-self:end}
 
@@ -108,6 +109,20 @@ section.block{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--rule)}
 .case .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:8px 0 4px}
 .case .detail-grid h4{font-size:.9rem;font-weight:600;margin:0 0 6px}
 .case .detail-grid p{font-size:.93rem;color:var(--ink-2);margin:0}
+
+/* diagrams */
+.diagram{margin:20px 0 8px;max-width:720px;overflow-x:auto}
+.diagram svg{display:block;width:100%;min-width:600px;height:auto}
+.diagram .n{fill:var(--surface);stroke:var(--rule);stroke-width:1.5}
+.diagram .hi{fill:var(--accent);stroke:var(--accent)}
+.diagram .band{fill:var(--signal-bg);stroke:none}
+.diagram text{fill:var(--ink);font-family:var(--body);font-size:14px;font-weight:500}
+.diagram text.on-hi{fill:var(--accent-ink)}
+.diagram text.sub{fill:var(--ink-2);font-size:12.5px;font-weight:400}
+.diagram text.on-band{fill:var(--signal)}
+.diagram .ln{stroke:var(--ink-2);stroke-width:1.5;fill:none}
+.diagram .ah{fill:var(--ink-2)}
+.diagram figcaption{font-size:.85rem;color:var(--ink-2);margin-top:8px}
 
 /* timeline */
 .timeline{list-style:none;margin:0;padding:0}
@@ -131,8 +146,7 @@ section.block{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--rule)}
 .toolkit dd{margin:0;color:var(--ink-2);font-size:.95rem}
 
 /* education */
-.edu{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 48px}
-.edu h3{font-family:var(--display);font-size:1.1rem;font-weight:600;margin:0 0 4px;line-height:1.3}
+.edu h3{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:0 0 4px;line-height:1.3}
 .edu p{margin:0;color:var(--ink-2);font-size:.95rem}
 
 /* contact */
@@ -147,7 +161,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
 @media (max-width:860px){
   .hero{grid-template-columns:1fr}
   .block-head,.case,.timeline li,.toolkit{grid-template-columns:1fr;gap:12px}
-  .principles,.edu{grid-template-columns:1fr}
+  .principles{grid-template-columns:1fr}
   .case .detail-grid{grid-template-columns:1fr;gap:14px}
   .toolkit dl{grid-template-columns:1fr;gap:2px}
   .toolkit dd{margin-bottom:10px}
@@ -170,7 +184,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
     <div>
       <p class="who"><strong>Data Product Manager</strong>, Phoenix, Arizona</p>
       <h1>I turn messy enterprise data into products people actually use.</h1>
-      <p class="lede">13 years building data platforms, governance, and analytics products. Today I'm leading an LLM-powered pipeline at WillScot that enriches customer and account records automatically, so sales teams stop doing research by hand.</p>
+      <p class="lede">Over a decade building data platforms, governance, and analytics products. Today I'm leading an LLM-powered pipeline at WillScot that enriches customer and account records automatically, so sales teams stop doing research by hand.</p>
       <div class="ctas">
         <a class="btn primary" href="mailto:reachakhilk@gmail.com">Email me</a>
         <a class="btn ghost" href="https://www.linkedin.com/in/akhheel" target="_blank" rel="noopener">LinkedIn profile</a>
@@ -186,7 +200,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
         <dt>Company</dt><dd>Desert Ridge Builders</dd>
         <dt>Industry</dt><dd class="pending" data-v="Commercial construction">Not captured</dd>
         <dt>Active projects</dt><dd class="pending" data-v="3 sites in Maricopa County">Not captured</dd>
-        <dt>Est. project start</dt><dd class="pending" data-v="Q2 2027">Not captured</dd>
+        <dt>Project stage</dt><dd class="pending" data-v="Site planning">Not captured</dd>
         <dt>Competitor on site</dt><dd class="pending" data-v="Yes, 1 known vendor">Not captured</dd>
         <dt>Sales priority</dt><dd class="pending" data-v="High">Not captured</dd>
       </dl>
@@ -209,11 +223,35 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
 
     <div class="cases">
       <article class="case">
-        <div class="impact">AI<small>LLM enrichment pipeline, in phased enterprise rollout</small></div>
+        <div class="impact">3<small>record types enriched automatically: customer, project, and account</small></div>
         <div>
           <h3>LLM-powered data enrichment</h3>
-          <p class="where">WillScot, 2024 to present</p>
+          <p class="where">WillScot</p>
           <p>Sales reps were spending hours researching customers, projects, and competitors before every outreach, and our CRM records were incomplete. I'm leading a cross-functional team building a pipeline that scrapes public sources and uses LLMs to fill those gaps automatically.</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 720 170" role="img" aria-labelledby="pipe-t">
+              <title id="pipe-t">Enrichment pipeline: public web sources feed a scraping pipeline, then LLM extraction, then compliance guardrails, producing enriched CRM records used for sales targeting and prioritization.</title>
+              <defs><marker id="ah1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+              <rect class="n" x="1" y="20" width="118" height="64" rx="10"/>
+              <text x="60" y="48" text-anchor="middle">Public web</text><text x="60" y="66" text-anchor="middle">sources</text>
+              <rect class="n" x="151" y="20" width="118" height="64" rx="10"/>
+              <text x="210" y="48" text-anchor="middle">Scraping</text><text x="210" y="66" text-anchor="middle">pipeline</text>
+              <rect class="n" x="301" y="20" width="118" height="64" rx="10"/>
+              <text x="360" y="48" text-anchor="middle">LLM</text><text x="360" y="66" text-anchor="middle">extraction</text>
+              <rect class="n" x="451" y="20" width="118" height="64" rx="10"/>
+              <text x="510" y="48" text-anchor="middle">Compliance</text><text x="510" y="66" text-anchor="middle">guardrails</text>
+              <rect class="hi" x="601" y="20" width="118" height="64" rx="10"/>
+              <text class="on-hi" x="660" y="48" text-anchor="middle">Enriched</text><text class="on-hi" x="660" y="66" text-anchor="middle">CRM records</text>
+              <path class="ln" d="M120,52 H149" marker-end="url(#ah1)"/>
+              <path class="ln" d="M270,52 H299" marker-end="url(#ah1)"/>
+              <path class="ln" d="M420,52 H449" marker-end="url(#ah1)"/>
+              <path class="ln" d="M570,52 H599" marker-end="url(#ah1)"/>
+              <path class="ln" d="M660,86 V114" marker-end="url(#ah1)"/>
+              <rect class="band" x="440" y="118" width="280" height="44" rx="10"/>
+              <text class="on-band" x="580" y="145" text-anchor="middle">Sales targeting and prioritization</text>
+              <text class="sub" x="1" y="112">Sourcing policy and guardrails agreed with legal before rollout</text>
+            </svg>
+          </figure>
           <details>
             <summary>How I approached it</summary>
             <div class="detail-grid">
@@ -248,6 +286,28 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
           <h3>Company-wide data governance framework</h3>
           <p class="where">WillScot</p>
           <p>No one clearly owned key data domains, so quality issues had nowhere to go. I designed a governance model with defined owners, stewardship policies, metadata standards, and quality SLAs, then built the operating structure to keep it alive.</p>
+          <figure class="diagram">
+            <svg viewBox="0 0 720 270" role="img" aria-labelledby="gov-t">
+              <title id="gov-t">Governance model: a data stewardship council with one representative per business domain; each domain has a data owner and steward; issues escalate from domains to the council; all domains share quality SLAs and metadata standards.</title>
+              <defs><marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker></defs>
+              <rect class="hi" x="160" y="4" width="400" height="60" rx="10"/>
+              <text class="on-hi" x="360" y="30" text-anchor="middle">Data stewardship council</text>
+              <text class="on-hi" x="360" y="50" text-anchor="middle" style="font-size:12.5px;font-weight:400">One representative per business domain</text>
+              <rect class="n" x="1" y="128" width="218" height="68" rx="10"/>
+              <text x="110" y="156" text-anchor="middle">Business domain</text><text class="sub" x="110" y="178" text-anchor="middle">Data owner and steward</text>
+              <rect class="n" x="251" y="128" width="218" height="68" rx="10"/>
+              <text x="360" y="156" text-anchor="middle">Business domain</text><text class="sub" x="360" y="178" text-anchor="middle">Data owner and steward</text>
+              <rect class="n" x="501" y="128" width="218" height="68" rx="10"/>
+              <text x="610" y="156" text-anchor="middle">Business domain</text><text class="sub" x="610" y="178" text-anchor="middle">Data owner and steward</text>
+              <path class="ln" d="M110,126 L250,68" marker-end="url(#ah2)"/>
+              <path class="ln" d="M360,126 V68" marker-end="url(#ah2)"/>
+              <path class="ln" d="M610,126 L470,68" marker-end="url(#ah2)"/>
+              <text class="sub" x="372" y="102">Escalation path</text>
+              <path class="ln" d="M110,198 V222"/><path class="ln" d="M360,198 V222"/><path class="ln" d="M610,198 V222"/>
+              <rect class="band" x="1" y="222" width="718" height="44" rx="10"/>
+              <text class="on-band" x="360" y="249" text-anchor="middle">Shared quality SLAs and metadata standards</text>
+            </svg>
+          </figure>
           <details>
             <summary>How I approached it</summary>
             <div class="detail-grid">
@@ -280,7 +340,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
         <div class="impact">500+<small>users on a unified BI platform across airports, ports, and rail</small></div>
         <div>
           <h3>Enterprise BI platform, Port Authority of NY &amp; NJ</h3>
-          <p class="where">Tabner Inc., 2016 to 2019</p>
+          <p class="where">Tabner Inc.</p>
           <p>Operations data lived in separate SAP SCM and PeopleSoft systems, and reconciliation was slow. I led the platform that unified them and owned the migration of 100+ reports from Cognos Impromptu to Cognos 10 and 11.</p>
           <details>
             <summary>How I approached it</summary>
@@ -304,7 +364,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
     </div>
     <ol class="timeline" reversed>
       <li>
-        <div class="when"><strong>2019 to present</strong>Phoenix, AZ</div>
+        <div class="when"><strong>Current role</strong>Phoenix, AZ</div>
         <div>
           <h3>Data Engineer, Analytics Products</h3>
           <p class="org">WillScot, modular space leader with 125+ branches</p>
@@ -316,7 +376,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
         </div>
       </li>
       <li>
-        <div class="when"><strong>2021 to 2023</strong>Volunteer, remote</div>
+        <div class="when"><strong>Volunteer</strong>Remote</div>
         <div>
           <h3>Product Manager, Hack for LA</h3>
           <p class="org">TDM Calculator for LA Department of Transportation</p>
@@ -327,7 +387,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
         </div>
       </li>
       <li>
-        <div class="when"><strong>2016 to 2019</strong>Charlotte, NC</div>
+        <div class="when"><strong>Consulting</strong>Charlotte, NC</div>
         <div>
           <h3>Senior Business Intelligence Consultant</h3>
           <p class="org">Tabner Inc., embedded at Port Authority of NY &amp; NJ</p>
@@ -337,7 +397,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
         </div>
       </li>
       <li>
-        <div class="when"><strong>2012 to 2016</strong>Beaverton, OR</div>
+        <div class="when"><strong>Consulting</strong>Beaverton, OR</div>
         <div>
           <h3>Business Intelligence Consultant</h3>
           <p class="org">CDRP Technologies, clients including Stryker and Noridian Healthcare</p>
@@ -389,12 +449,10 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
   <div class="wrap">
     <div class="block-head">
       <h2>Education</h2>
-    </div>
-    <div class="edu">
-      <div><h3>MBA, Business Analytics and Supply Chain</h3><p>W. P. Carey School of Business, Arizona State University, 2021</p></div>
-      <div><h3>Product Management Certificate</h3><p>Product School, 2021</p></div>
-      <div><h3>MS, Software Engineering</h3><p>Stratford University, 2012</p></div>
-      <div><h3>BTech, Electronics and Communication Engineering</h3><p>Jawaharlal Nehru Technological University, 2010, with distinction</p></div>
+      <div class="edu">
+        <h3>MBA, Business Analytics and Supply Chain</h3>
+        <p>W. P. Carey School of Business, Arizona State University</p>
+      </div>
     </div>
   </div>
 </section>
@@ -408,7 +466,7 @@ footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
       <a class="btn ghost" href="https://www.linkedin.com/in/akhheel" target="_blank" rel="noopener">LinkedIn profile</a>
     </div>
   </section>
-  <footer class="site">© 2026 Akhil Kumar Kandakatla</footer>
+  <footer class="site">© Akhil Kumar Kandakatla</footer>
 </div>
 </main>
 
