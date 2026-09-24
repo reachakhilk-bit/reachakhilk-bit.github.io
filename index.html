@@ -1,0 +1,434 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akhil Kandakatla · Data Product Manager</title>
+<meta name="description" content="Akhil Kandakatla is a data product manager in Phoenix, AZ, building AI-powered data enrichment, governance, and self-service analytics products.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ground:#F2F3EF;
+  --surface:#FFFFFF;
+  --ink:#16201C;
+  --ink-2:#4A5550;
+  --rule:#D5D9D2;
+  --accent:#1F3FBF;
+  --accent-ink:#FFFFFF;
+  --signal:#8A5A00;
+  --signal-bg:#FFF1CF;
+  --empty:#9AA39E;
+  --display:"Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#121816; --surface:#1A221F; --ink:#E8ECE7; --ink-2:#A9B3AD;
+    --rule:#2E3834; --accent:#8FA6FF; --accent-ink:#0E1430;
+    --signal:#F2C265; --signal-bg:#3A2E12; --empty:#66716B;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#121816; --surface:#1A221F; --ink:#E8ECE7; --ink-2:#A9B3AD;
+  --rule:#2E3834; --accent:#8FA6FF; --accent-ink:#0E1430;
+  --signal:#F2C265; --signal-bg:#3A2E12; --empty:#66716B;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,48px)}
+
+/* nav */
+nav.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;gap:16px;flex-wrap:wrap}
+nav.top .mark{font-family:var(--display);font-weight:800;font-size:1.15rem;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+nav.top ul{list-style:none;display:flex;gap:clamp(14px,3vw,28px);margin:0;padding:0;flex-wrap:wrap}
+nav.top ul a{color:var(--ink-2);text-decoration:none;font-size:.95rem}
+nav.top ul a:hover{color:var(--ink)}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center;padding:clamp(40px,8vw,96px) 0 clamp(56px,8vw,104px)}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(2.6rem,6.2vw,4.9rem);line-height:.98;letter-spacing:-.035em;margin:0 0 28px;font-variation-settings:"opsz" 96}
+.hero .lede{font-size:clamp(1.1rem,1.6vw,1.3rem);color:var(--ink-2);max-width:34em;margin:0 0 32px}
+.hero .who{font-size:1rem;color:var(--ink-2);margin:0 0 18px}
+.hero .who strong{color:var(--ink);font-weight:600}
+.ctas{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 22px;border-radius:999px;font-weight:600;font-size:1rem;text-decoration:none;border:2px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{color:var(--accent);background:transparent}
+
+/* enrichment demo */
+.record{background:var(--surface);border:1px solid var(--rule);border-radius:14px;padding:22px 22px 16px}
+.record header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:14px}
+.record header h2{font-family:var(--display);font-size:1.05rem;font-weight:600;margin:0}
+.record header p{margin:0;font-size:.8rem;color:var(--ink-2)}
+.record dl{margin:0;display:grid;grid-template-columns:auto 1fr;border-top:1px solid var(--rule)}
+.record dt,.record dd{padding:10px 0;border-bottom:1px solid var(--rule);font-size:.93rem}
+.record dt{color:var(--ink-2);padding-right:18px}
+.record dd{margin:0;text-align:right;font-weight:500}
+.record dd.pending{color:var(--empty);font-weight:400;font-style:italic}
+.record dd.filled{animation:fill .5s ease-out}
+.record dd.filled span{background:var(--signal-bg);color:var(--signal);padding:1px 7px;border-radius:5px}
+@keyframes fill{from{opacity:0;transform:translateX(8px)}to{opacity:1;transform:none}}
+.record footer{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:12px}
+.meter{flex:1;height:6px;background:var(--rule);border-radius:3px;overflow:hidden}
+.meter i{display:block;height:100%;width:25%;background:var(--accent);transition:width .45s ease}
+.record footer output{font-size:.85rem;color:var(--ink-2);min-width:9.5em;text-align:right}
+.replay{margin-top:12px;background:none;border:0;color:var(--accent);font:inherit;font-size:.88rem;font-weight:600;padding:10px 0;cursor:pointer;min-height:44px}
+@media (prefers-reduced-motion: reduce){.record dd.filled{animation:none}.meter i{transition:none}}
+
+/* sections */
+section.block{padding:clamp(56px,8vw,96px) 0;border-top:1px solid var(--rule)}
+.block-head{display:grid;grid-template-columns:260px 1fr;gap:40px;margin-bottom:40px}
+.block-head h2{font-family:var(--display);font-weight:800;font-size:clamp(1.8rem,3.4vw,2.5rem);line-height:1.05;letter-spacing:-.025em;margin:0}
+.block-head p{margin:0;color:var(--ink-2);max-width:38em;align-self:end}
+
+/* case studies */
+.cases{display:flex;flex-direction:column}
+.case{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:36px 0;border-top:1px solid var(--rule)}
+.case:first-child{border-top:0;padding-top:0}
+.case .impact{font-family:var(--display);font-weight:800;font-size:clamp(2.4rem,4.4vw,3.4rem);line-height:1;letter-spacing:-.03em;color:var(--accent)}
+.case .impact small{display:block;font-family:var(--body);font-weight:400;font-size:.9rem;letter-spacing:0;color:var(--ink-2);margin-top:8px;line-height:1.4}
+.case h3{font-family:var(--display);font-weight:600;font-size:1.45rem;line-height:1.2;letter-spacing:-.01em;margin:0 0 6px}
+.case .where{color:var(--ink-2);font-size:.92rem;margin:0 0 14px}
+.case p{margin:0 0 12px;max-width:40em}
+.case details{max-width:40em}
+.case summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:.95rem;padding:10px 0;min-height:44px;display:flex;align-items:center;list-style:none}
+.case summary::-webkit-details-marker{display:none}
+.case summary::before{content:"+";display:inline-block;width:1.2em;font-weight:600}
+.case details[open] summary::before{content:"−"}
+.case .detail-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:8px 0 4px}
+.case .detail-grid h4{font-size:.9rem;font-weight:600;margin:0 0 6px}
+.case .detail-grid p{font-size:.93rem;color:var(--ink-2);margin:0}
+
+/* timeline */
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:260px 1fr;gap:40px;padding:28px 0;border-top:1px solid var(--rule)}
+.timeline li:first-child{border-top:0;padding-top:0}
+.timeline .when{font-variant-numeric:tabular-nums;color:var(--ink-2);font-size:.95rem}
+.timeline .when strong{display:block;color:var(--ink);font-family:var(--display);font-size:1.15rem;font-weight:600}
+.timeline h3{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:0 0 4px}
+.timeline .org{color:var(--ink-2);margin:0 0 10px;font-size:.95rem}
+.timeline ul{margin:0;padding-left:1.1em;max-width:42em}
+.timeline ul li{display:list-item;border:0;padding:0 0 6px}
+
+/* how I work / skills */
+.principles{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,48px)}
+.principles h3{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:0 0 8px;line-height:1.25}
+.principles p{margin:0;color:var(--ink-2);font-size:.98rem}
+.toolkit{margin-top:56px;display:grid;grid-template-columns:260px 1fr;gap:40px}
+.toolkit h3{font-family:var(--display);font-size:1.2rem;font-weight:600;margin:0}
+.toolkit dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 28px}
+.toolkit dt{font-weight:600;font-size:.95rem}
+.toolkit dd{margin:0;color:var(--ink-2);font-size:.95rem}
+
+/* education */
+.edu{display:grid;grid-template-columns:repeat(2,1fr);gap:28px 48px}
+.edu h3{font-family:var(--display);font-size:1.1rem;font-weight:600;margin:0 0 4px;line-height:1.3}
+.edu p{margin:0;color:var(--ink-2);font-size:.95rem}
+
+/* contact */
+.contact{background:var(--accent);color:var(--accent-ink);border-radius:20px;padding:clamp(36px,6vw,72px);margin:clamp(56px,8vw,96px) 0}
+.contact h2{font-family:var(--display);font-weight:800;font-size:clamp(2rem,4.6vw,3.4rem);line-height:1.02;letter-spacing:-.03em;margin:0 0 16px;max-width:14em}
+.contact p{margin:0 0 28px;max-width:34em;opacity:.9}
+.contact .btn{border-color:var(--accent-ink)}
+.contact .btn.primary{background:var(--accent-ink);color:var(--accent)}
+.contact .btn.ghost{color:var(--accent-ink)}
+footer.site{padding:0 0 40px;color:var(--ink-2);font-size:.88rem}
+
+@media (max-width:860px){
+  .hero{grid-template-columns:1fr}
+  .block-head,.case,.timeline li,.toolkit{grid-template-columns:1fr;gap:12px}
+  .principles,.edu{grid-template-columns:1fr}
+  .case .detail-grid{grid-template-columns:1fr;gap:14px}
+  .toolkit dl{grid-template-columns:1fr;gap:2px}
+  .toolkit dd{margin-bottom:10px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="top" aria-label="Primary">
+    <a class="mark" href="#top">Akhil Kandakatla</a>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero" id="top">
+    <div>
+      <p class="who"><strong>Data Product Manager</strong>, Phoenix, Arizona</p>
+      <h1>I turn messy enterprise data into products people actually use.</h1>
+      <p class="lede">13 years building data platforms, governance, and analytics products. Today I'm leading an LLM-powered pipeline at WillScot that enriches customer and account records automatically, so sales teams stop doing research by hand.</p>
+      <div class="ctas">
+        <a class="btn primary" href="mailto:reachakhilk@gmail.com">Email me</a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/akhheel" target="_blank" rel="noopener">LinkedIn profile</a>
+      </div>
+    </div>
+
+    <aside class="record" aria-label="Illustration of the data enrichment product">
+      <header>
+        <h2>Account record</h2>
+        <p>Illustrative example</p>
+      </header>
+      <dl id="rec">
+        <dt>Company</dt><dd>Desert Ridge Builders</dd>
+        <dt>Industry</dt><dd class="pending" data-v="Commercial construction">Not captured</dd>
+        <dt>Active projects</dt><dd class="pending" data-v="3 sites in Maricopa County">Not captured</dd>
+        <dt>Est. project start</dt><dd class="pending" data-v="Q2 2027">Not captured</dd>
+        <dt>Competitor on site</dt><dd class="pending" data-v="Yes, 1 known vendor">Not captured</dd>
+        <dt>Sales priority</dt><dd class="pending" data-v="High">Not captured</dd>
+      </dl>
+      <footer>
+        <div class="meter" aria-hidden="true"><i id="bar"></i></div>
+        <output id="pct" aria-live="polite">1 of 6 fields complete</output>
+      </footer>
+      <button class="replay" id="replay" type="button">Run enrichment again</button>
+    </aside>
+  </header>
+</div>
+
+<main>
+<section class="block" id="work">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Selected work</h2>
+      <p>Five products I've owned end to end, from defining the problem with stakeholders to shipping, measuring adoption, and iterating.</p>
+    </div>
+
+    <div class="cases">
+      <article class="case">
+        <div class="impact">AI<small>LLM enrichment pipeline, in phased enterprise rollout</small></div>
+        <div>
+          <h3>LLM-powered data enrichment</h3>
+          <p class="where">WillScot, 2024 to present</p>
+          <p>Sales reps were spending hours researching customers, projects, and competitors before every outreach, and our CRM records were incomplete. I'm leading a cross-functional team building a pipeline that scrapes public sources and uses LLMs to fill those gaps automatically.</p>
+          <details>
+            <summary>How I approached it</summary>
+            <div class="detail-grid">
+              <div><h4>Defining success</h4><p>Set OKRs and acceptance criteria around enrichment coverage, record completeness, and manual research hours saved per rep per week.</p></div>
+              <div><h4>Aligning stakeholders</h4><p>Brought engineering, data science, sales ops, and legal together on data sourcing policy and compliance guardrails before scaling.</p></div>
+              <div><h4>Rolling out</h4><p>Planned a phased deployment and extended the same signals into a competitor intelligence engine for account prioritization.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="impact">45%<small>faster data incident response after migration</small></div>
+        <div>
+          <h3>Snowflake cloud warehouse modernization</h3>
+          <p class="where">WillScot</p>
+          <p>Legacy Oracle infrastructure was limiting reporting reliability across a fleet of 50,000+ modular units. I architected the move to Snowflake, enabling near real-time analytics without disrupting the teams that depended on existing reports.</p>
+          <details>
+            <summary>How I approached it</summary>
+            <div class="detail-grid">
+              <div><h4>Discovery</h4><p>Ran stakeholder workshops to inventory data assets and map downstream dependencies.</p></div>
+              <div><h4>Sequencing</h4><p>Prioritized migration waves by business criticality to protect BI consumers during the transition.</p></div>
+              <div><h4>Trust</h4><p>Launched data quality SLAs and monitoring dashboards post-migration.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="impact">30%<small>improvement in enterprise data quality within 12 months</small></div>
+        <div>
+          <h3>Company-wide data governance framework</h3>
+          <p class="where">WillScot</p>
+          <p>No one clearly owned key data domains, so quality issues had nowhere to go. I designed a governance model with defined owners, stewardship policies, metadata standards, and quality SLAs, then built the operating structure to keep it alive.</p>
+          <details>
+            <summary>How I approached it</summary>
+            <div class="detail-grid">
+              <div><h4>Ownership</h4><p>Stood up a stewardship council with a representative from each business domain and clear escalation paths.</p></div>
+              <div><h4>Compliance</h4><p>Partnered with legal and compliance to align policies with regulation and strengthen lineage documentation.</p></div>
+              <div><h4>Results</h4><p>Data quality scores up 30%, data breach incidents down 20%, and audit preparation time reduced.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="impact">40%<small>fewer ad hoc data requests to the product team</small></div>
+        <div>
+          <h3>Self-service BI program</h3>
+          <p class="where">WillScot</p>
+          <p>The data team had become a request queue. I treated self-service as a product: role-specific Power BI and Tableau dashboards, a catalog of trusted datasets and metric definitions, and training so 200+ stakeholders could answer their own questions.</p>
+          <details>
+            <summary>How I approached it</summary>
+            <div class="detail-grid">
+              <div><h4>Metrics</h4><p>Defined 20+ KPIs with business unit leads, driving a 20% lift in internal sales team efficiency.</p></div>
+              <div><h4>Adoption</h4><p>Onboarded users through targeted training, documentation, and embedded office hours.</p></div>
+              <div><h4>Savings</h4><p>Eliminated manual reporting workflows worth $90,000 a year.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+
+      <article class="case">
+        <div class="impact">500+<small>users on a unified BI platform across airports, ports, and rail</small></div>
+        <div>
+          <h3>Enterprise BI platform, Port Authority of NY &amp; NJ</h3>
+          <p class="where">Tabner Inc., 2016 to 2019</p>
+          <p>Operations data lived in separate SAP SCM and PeopleSoft systems, and reconciliation was slow. I led the platform that unified them and owned the migration of 100+ reports from Cognos Impromptu to Cognos 10 and 11.</p>
+          <details>
+            <summary>How I approached it</summary>
+            <div class="detail-grid">
+              <div><h4>Delivery</h4><p>Served as Scrum Master for a 7-person team, cutting coordination overhead from 20 to 10 hours a week.</p></div>
+              <div><h4>Performance</h4><p>Consolidated fragmented data marts, halving report run time and reconciliation time.</p></div>
+              <div><h4>Growth</h4><p>Led proposal strategy that won $150K in new contract revenue.</p></div>
+            </div>
+          </details>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="experience">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Experience</h2>
+      <p>From building reports to owning the products they live in.</p>
+    </div>
+    <ol class="timeline" reversed>
+      <li>
+        <div class="when"><strong>2019 to present</strong>Phoenix, AZ</div>
+        <div>
+          <h3>Data Engineer, Analytics Products</h3>
+          <p class="org">WillScot, modular space leader with 125+ branches</p>
+          <ul>
+            <li>Product owner for the analytics team, shipping 15+ data product features per quarter through backlog prioritization, sprint planning, and stakeholder acceptance.</li>
+            <li>Leading the LLM enrichment pipeline and competitor intelligence strategy for enterprise sales.</li>
+            <li>Drove Alteryx automation that cut manual data processing by 60% across supply chain and operations.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when"><strong>2021 to 2023</strong>Volunteer, remote</div>
+        <div>
+          <h3>Product Manager, Hack for LA</h3>
+          <p class="org">TDM Calculator for LA Department of Transportation</p>
+          <ul>
+            <li>Led a volunteer squad of engineers, designers, and analysts on an open-source tool city planners use to model transportation impact of new developments.</li>
+            <li>Ran user research with planners and maintained a public roadmap, user stories, and release notes.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when"><strong>2016 to 2019</strong>Charlotte, NC</div>
+        <div>
+          <h3>Senior Business Intelligence Consultant</h3>
+          <p class="org">Tabner Inc., embedded at Port Authority of NY &amp; NJ</p>
+          <ul>
+            <li>Built and managed BI platforms for 500+ users and led the Cognos migration and Agile delivery.</li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <div class="when"><strong>2012 to 2016</strong>Beaverton, OR</div>
+        <div>
+          <h3>Business Intelligence Consultant</h3>
+          <p class="org">CDRP Technologies, clients including Stryker and Noridian Healthcare</p>
+          <ul>
+            <li>Designed ETL pipelines that automated 10 manual jobs and cut processing time by a third.</li>
+            <li>Built a warehouse disaster recovery plan that reduced data infrastructure risk by 40%.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="block" id="approach">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>How I work</h2>
+      <p>I came to product management from the engineering side, which shapes how I lead.</p>
+    </div>
+    <div class="principles">
+      <div>
+        <h3>Start from the workflow, not the dataset</h3>
+        <p>The enrichment pipeline began as a question about how reps spend their week. Measuring hours saved kept the team honest about value.</p>
+      </div>
+      <div>
+        <h3>Trust is a feature</h3>
+        <p>Governance, quality SLAs, and clear metric definitions are what turn a dashboard into something people make decisions with.</p>
+      </div>
+      <div>
+        <h3>Technical depth speeds up teams</h3>
+        <p>Having built warehouses and pipelines myself, I can scope realistically with engineers and translate constraints clearly to executives.</p>
+      </div>
+    </div>
+
+    <div class="toolkit">
+      <h3>Toolkit</h3>
+      <dl>
+        <dt>Product</dt><dd>Roadmapping, OKRs, user research, Agile and Scrum, JIRA, Figma, Mural</dd>
+        <dt>AI and ML</dt><dd>LLM integration, AI data enrichment, web scraping pipelines</dd>
+        <dt>Data platforms</dt><dd>Snowflake, Azure, Oracle, dimensional modeling</dd>
+        <dt>Pipelines</dt><dd>SQL, Alteryx, Informatica, Fivetran, SSIS</dd>
+        <dt>Analytics</dt><dd>Tableau, Power BI, Sigma, IBM Cognos, SAP BusinessObjects</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="education">
+  <div class="wrap">
+    <div class="block-head">
+      <h2>Education</h2>
+    </div>
+    <div class="edu">
+      <div><h3>MBA, Business Analytics and Supply Chain</h3><p>W. P. Carey School of Business, Arizona State University, 2021</p></div>
+      <div><h3>Product Management Certificate</h3><p>Product School, 2021</p></div>
+      <div><h3>MS, Software Engineering</h3><p>Stratford University, 2012</p></div>
+      <div><h3>BTech, Electronics and Communication Engineering</h3><p>Jawaharlal Nehru Technological University, 2010, with distinction</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="contact" id="contact">
+    <h2>Looking for my next product role.</h2>
+    <p>I'm interested in data, AI, and platform product manager roles where the product is the data. Happy to walk through any of these projects in more depth.</p>
+    <div class="ctas">
+      <a class="btn primary" href="mailto:reachakhilk@gmail.com">reachakhilk@gmail.com</a>
+      <a class="btn ghost" href="https://www.linkedin.com/in/akhheel" target="_blank" rel="noopener">LinkedIn profile</a>
+    </div>
+  </section>
+  <footer class="site">© 2026 Akhil Kumar Kandakatla</footer>
+</div>
+</main>
+
+<script>
+(function(){
+  var rows = Array.prototype.slice.call(document.querySelectorAll('#rec dd.pending'));
+  var total = 6, bar = document.getElementById('bar'), pct = document.getElementById('pct');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var timers = [];
+  function set(n){ bar.style.width = (n/total*100)+'%'; pct.textContent = n+' of '+total+' fields complete'; }
+  function fill(dd){ dd.classList.remove('pending'); dd.classList.add('filled'); dd.innerHTML=''; var s=document.createElement('span'); s.textContent=dd.getAttribute('data-v'); dd.appendChild(s); }
+  function reset(){ timers.forEach(clearTimeout); timers=[]; rows.forEach(function(dd){ dd.classList.remove('filled'); dd.classList.add('pending'); dd.textContent='Not captured'; }); set(1); }
+  function run(){
+    reset();
+    if(reduce){ rows.forEach(fill); set(total); return; }
+    rows.forEach(function(dd,i){ timers.push(setTimeout(function(){ fill(dd); set(i+2); }, 900 + i*650)); });
+  }
+  document.getElementById('replay').addEventListener('click', run);
+  run();
+})();
+</script>
+</body>
+</html>
